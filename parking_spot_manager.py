@@ -81,7 +81,54 @@ def print_spots(spots):
         print(str(data))
 
 
+def filter_by_name(spots, name):
+    """
+        [이름 검색기능]
+        'name' key의 value를 get 함수로 받아와 거기에 입력한 name을 포함할 경우
+        filtered_list에 추가하고 모든 작업을 마치면 name을 포함하는 데이터만
+        걸러낸 list인 filtered_list를 반환한다.
+    """
+    filtered_list=[x for x in spots if name in x.get('name')]
+    return filtered_list
 
+def filter_by_city(spots, city):
+    """
+        [도시 검색기능]
+        'city' key의 value를 get 함수로 받아와 거기에 입력한 city을 포함할 경우
+        filtered_list에 추가하고 모든 작업을 마치면 city을 포함하는 데이터만
+        걸러낸 list인 filtered_list를 반환한다.
+    """
+    filtered_list=[x for x in spots if city in x.get('city')]
+    return filtered_list
+
+def filter_by_district(spots, district):
+    """
+        [지역 검색기능]
+        'district' key의 value를 get 함수로 받아와 거기에 입력한 district을 포함할 경우
+        filtered_list에 추가하고 모든 작업을 마치면 district을 포함하는 데이터만
+        걸러낸 list인 filtered_list를 반환한다.
+    """
+    filtered_list=[x for x in spots if district in x.get('district')]
+    return filtered_list
+
+def filter_by_ptype(spots, ptype):
+    """
+        [주차장 유형 검색기능]
+        'ptype' key의 value를 get 함수로 받아와 거기에 입력한 ptype을 포함할 경우
+        filtered_list에 추가하고 모든 작업을 마치면 ptype을 포함하는 데이터만
+        걸러낸 list인 filtered_list를 반환한다.
+    """
+    filtered_list=[x for x in spots if ptype in x.get('ptype')]
+    return filtered_list
+
+def filter_by_location(spots, location):
+    """
+        [위도, 경도 검색기능]
+        location튜플은 4개의 정보가 저장되어 있다. 차례대로 최소위도 최대위도, 최소경도 최대경도이다.
+        최대값과 최소값 사이에 있는 위치를 가진 정보들만을 취합하여 이를 반환한다.
+    """
+    filtered_list=[x for x in spots if (location[0] < x.get('latitude') < location[1]) and (location[2] < x.get('longitude') < location[3])]
+    return filtered_list
 
     
 
