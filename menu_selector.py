@@ -94,9 +94,12 @@ def start_process(path):
             print("---sort by---")
             print(keywords)
             keyword = input('type keyword:')
+            """
+                    입력값이 keywords리스트 내에 있는 문자열이면 이를 parking_spot_manager의 함수에 이 값을 넘겨준다.
+                    이 함수에서 정렬을 마치고 반환한 값을 spots에 덮어 씌운다.
+            """
             if keyword in keywords:
-                print("not implemented yet")
-                # fill this block
+                spots = pmanager.sort_by_keyword(spots, keyword)
             else: print("invalid input")
         elif select == 4:
             """

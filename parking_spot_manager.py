@@ -130,7 +130,15 @@ def filter_by_location(spots, location):
     filtered_list=[x for x in spots if (location[0] < x.get('latitude') < location[1]) and (location[2] < x.get('longitude') < location[3])]
     return filtered_list
 
-    
+def sort_by_keyword(spots, keyword):
+    """
+        [주어진 키워드를 받아서 정렬하는 함수]
+        어떤 것을 기준으로 정렬할지 매개변수 keyword로 받아
+        익명함수를 이용하여 k로 받은 다음 getter함수를 이용하여 k.get(keyword)로 value들을 정렬한다.
+        마지막으로 정렬된 리스트를 반환한다.
+    """
+    sorted_list=sorted(spots, key=lambda k : k.get(keyword))
+    return sorted_list
 
 
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
